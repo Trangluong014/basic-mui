@@ -1,16 +1,34 @@
-import { Grid } from "@mui/material";
-import React from "react";
+import { Grid, Pagination } from "@mui/material";
+import { Box } from "@mui/system";
+import React, { useState } from "react";
 import JobCard from "./JobCard";
 
-function JobList({ data }) {
+const limit = 5;
+
+function JobList({ jobs }) {
+  const [page, setPage] = useState(1);
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
+  const pageCount = Math.ceil(jobs.length / limit);
+
   return (
     <div>
-      <Grid>
-        {data &&
-          data
-            .slice(0, 5)
-            .map((job) => <JobCard key={job.id} job={job}></JobCard>)}
+      <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
+        {jobs &&
+          jobs
+            .slice((page - 1) * limit, page * limit)
+            .map((job) => <JobCard key={job.id} job={job} />)}
       </Grid>
+      <Box sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
+        <Pagination
+          count={pageCount}
+          page={page}
+          onChange={handleChange}
+          color="error"
+          className="pagination-list"
+        />
+      </Box>
     </div>
   );
 }
