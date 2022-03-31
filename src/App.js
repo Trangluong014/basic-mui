@@ -1,13 +1,13 @@
 import "./App.css";
 import PrimarySearchAppBar from "./component/appbar";
 import JobList from "./component/JobList";
-import data from "./data.json";
+import job from "./data.json";
 
 function App() {
   return (
     <div className="App">
       <PrimarySearchAppBar></PrimarySearchAppBar>
-      <JobList></JobList>
+      <JobList>{job}</JobList>
     </div>
   );
 }
