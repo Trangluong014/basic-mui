@@ -1,10 +1,12 @@
-import { AppBar } from "@mui/material";
 import "./App.css";
+import PrimarySearchAppBar from "./component/appbar";
+import JobList from "./component/JobList";
 
 function App() {
   return (
     <div className="App">
-      <AppBar></AppBar>
+      <PrimarySearchAppBar></PrimarySearchAppBar>
+      <JobList></JobList>
     </div>
   );
 }

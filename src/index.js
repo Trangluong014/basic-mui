@@ -1,15 +1,7 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
-import PrimarySearchAppBar from "./component/appbar";
+import App from "./App";
 import "./index.css";
-
-function App() {
-  return (
-    <div className="App">
-      <PrimarySearchAppBar></PrimarySearchAppBar>
-    </div>
-  );
-}
 
 ReactDOM.render(
   <React.StrictMode>
